@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: #000;
+  overflow: hidden;
+  margin: 0;
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+#parabens {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  display: none; /* Começa escondido */
+}
+
+#message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #fff;
+  text-align: center;
+  width: 80%;
+}
+</style>
+</head>
+<body>
+
+<div id="parabens"></div>
+<div id="message"></div>
+
+<script>
+const messageText = [
+    "Eita, que esse dia especial chegou!!!",
+    "Passando aqui somente pra desejar um Feliz aniversário",
+    "pra esse serzinho, diga-se de passagem, peculiar e maravilho",
+    "que o universo colocou em minha vida.",
+    "O que falar desse neném com cara de sapeca,",
+    "mas que tem a sabedoria de 1000 anciões?",
+    "Não sei direito!",
+    "Não sou muito bom com palavras;",
+    "são tantos sentimentos bons que você emana,",
+    "que a gente só quer sentir, só quer estar perto.",
+    "É lindo ver você sempre sorrindo pra todas as situações,",
+    "levando a vida de forma leve,",
+    "ajudando quem está ao seu redor sem esperar nada em troca.",
+    "Você merece o melhor desse mundo!",
+    "Parabeéeeeens, Pedro!",
+    "Meu desejo pra você é que os seus desejos mais profundos,",
+    "aqueles que você não conta pra ninguém, se realizem...",
+    "Agora vai encher a caraaaa!!!",
+    "Aproveita seu diaaa!!!",
+    "PS: guarda meu pedaço de bolo porque vou aí comer ele muito em breve... :D"
+];
+const parabensElement = document.getElementById("parabens");
+const messageElement = document.getElementById("message");
+let lineIndex = 0;
+let charIndex = 0;
+
+// Inicia os fogos de artifício imediatamente por 3 segundos
+let initialFireworksInterval = setInterval(() => {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  createFirework(x, y);
+}, 250); // Mais fogos
+setTimeout(() => {
+  clearInterval(initialFireworksInterval); // Para os fogos iniciais
+}, 3000);
+
+// Inicia a datilografia da mensagem após um atraso (por exemplo, 2 segundos)
+setTimeout(typeWriter, 5000); // Atraso após os fogos iniciais
+
+function typeWriter() {
+  if (lineIndex < messageText.length) {
+    if (charIndex < messageText[lineIndex].length) {
+      messageElement.innerHTML += messageText[lineIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 100); // Velocidade da datilografia
+    } else {
+      messageElement.innerHTML += "<br>"; // Quebra de linha
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeWriter, 500); // Atraso entre as linhas
+
+      // Verifica se a mensagem terminou
+      if (lineIndex === messageText.length) {
+        setTimeout(() => {
+          messageElement.style.display = "none"; // Esconde a mensagem
+          parabensElement.textContent = "PARABÉNS!";
+          parabensElement.style.display = "block"; // Mostra "PARABÉNS!"
+          // Aumenta a frequência dos fogos de artifício por 3 segundos
+          let intenseFireworksInterval = setInterval(() => {
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            createFirework(x, y);
+          }, 100); // Mais fogos
+          setTimeout(() => {
+            clearInterval(intenseFireworksInterval); // Volta à frequência normal
+          }, 3000);
+        }, 1000); // Atraso antes de mostrar "PARABÉNS!"
+      }
+    }
+  }
+}
+
+function createFirework(x, y) {
+  // ... (mesma função createFirework do exemplo anterior) ...
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: #000;
+  overflow: hidden;
+  margin: 0;
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+#parabens {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  display: none; /* Começa escondido */
+}
+
+#message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #fff;
+  text-align: center;
+  width: 80%;
+}
+</style>
+</head>
+<body>
+
+<div id="parabens"></div>
+<div id="message"></div>
+
+<script>
+const messageText = [
+    "Eita, que esse dia especial chegou!!!",
+    "Passando aqui somente pra desejar um Feliz aniversário",
+    "pra esse serzinho, diga-se de passagem, peculiar e maravilho",
+    "que o universo colocou em minha vida.",
+    "O que falar desse neném com cara de sapeca,",
+    "mas que tem a sabedoria de 1000 anciões?",
+    "Não sei direito!",
+    "Não sou muito bom com palavras;",
+    "são tantos sentimentos bons que você emana,",
+    "que a gente só quer sentir, só quer estar perto.",
+    "É lindo ver você sempre sorrindo pra todas as situações,",
+    "levando a vida de forma leve,",
+    "ajudando quem está ao seu redor sem esperar nada em troca.",
+    "Você merece o melhor desse mundo!",
+    "Parabeéeeeens, Pedro!",
+    "Meu desejo pra você é que os seus desejos mais profundos,",
+    "aqueles que você não conta pra ninguém, se realizem...",
+    "Agora vai encher a caraaaa!!!",
+    "Aproveita seu diaaa!!!",
+    "PS: guarda meu pedaço de bolo porque vou aí comer ele muito em breve... :D"
+];
+const parabensElement = document.getElementById("parabens");
+const messageElement = document.getElementById("message");
+let lineIndex = 0;
+let charIndex = 0;
+
+// Inicia os fogos de artifício imediatamente por 3 segundos
+let initialFireworksInterval = setInterval(() => {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  createFirework(x, y);
+}, 250); // Mais fogos
+setTimeout(() => {
+  clearInterval(initialFireworksInterval); // Para os fogos iniciais
+}, 3000);
+
+// Inicia a datilografia da mensagem após um atraso (por exemplo, 2 segundos)
+setTimeout(typeWriter, 5000); // Atraso após os fogos iniciais
+
+function typeWriter() {
+  if (lineIndex < messageText.length) {
+    if (charIndex < messageText[lineIndex].length) {
+      messageElement.innerHTML += messageText[lineIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeWriter, 100); // Velocidade da datilografia
+    } else {
+      messageElement.innerHTML += "<br>"; // Quebra de linha
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeWriter, 500); // Atraso entre as linhas
+
+      // Verifica se a mensagem terminou
+      if (lineIndex === messageText.length) {
+        setTimeout(() => {
+          messageElement.style.display = "none"; // Esconde a mensagem
+          parabensElement.textContent = "PARABÉNS!";
+          parabensElement.style.display = "block"; // Mostra "PARABÉNS!"
+          // Aumenta a frequência dos fogos de artifício por 3 segundos
+          let intenseFireworksInterval = setInterval(() => {
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            createFirework(x, y);
+          }, 100); // Mais fogos
+          setTimeout(() => {
+            clearInterval(intenseFireworksInterval); // Volta à frequência normal
+          }, 3000);
+        }, 1000); // Atraso antes de mostrar "PARABÉNS!"
+      }
+    }
+  }
+}
+
+function createFirework(x, y) {
+  // ... (mesma função createFirework do exemplo anterior) ...
+}
+</script>
+
+</body>
+</html>
+
